@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets, uic, QtGui, QtCore
 import cv2
 import sys,os,time
+import resources
 # settings
 models_data = {'EDSR': [{'x2': 'EDSR_x2.pb'},{'x3': 'EDSR_x3.pb'},{'x4': 'EDSR_x4.pb'}],
 'ESPCN' : [{'x2': 'ESPCN_x2.pb'},{'x3': 'ESPCN_x3.pb'},{'x4': 'ESPCN_x4.pb'}],
@@ -8,18 +9,12 @@ models_data = {'EDSR': [{'x2': 'EDSR_x2.pb'},{'x3': 'EDSR_x3.pb'},{'x4': 'EDSR_x
 'FSRCNN-small' : [{'x2': 'FSRCNN-small_x2.pb'},{'x3': 'FSRCNN-small_x3.pb'},{'x4': 'FSRCNN-small_x4.pb'}],
 'LapSRN' : [{'x2': 'LapSRN_x2.pb'},{'x3': 'LapSRN_x3.pb'},{'x4': 'LapSRN_x4.pb'},{'x8': 'LapSRN_x8.pb'}]}
 
-        
-
-        
-
-
-
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi("main.ui", self)
-        self.setFixedSize(640, 480)
+        #self.setFixedSize(640, 480)
         #load resources file
 
         self.show()
@@ -43,11 +38,6 @@ class MainWindow(QtWidgets.QMainWindow):
         #multiple files
         
         fileNames = QtWidgets.QFileDialog.getOpenFileNames(self, 'Open file', '', "Image files (*.jpg *.gif *.png *.jpeg)")[0]
-
-        
-        
-
-
 
         
         #add file names to tableWidget
